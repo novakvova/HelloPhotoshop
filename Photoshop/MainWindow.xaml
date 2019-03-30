@@ -7,6 +7,58 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TabControl x:Name="myTabSystem" Margin="8">
+            <TabItem x:Name="tabInk" Header="Ink API">
+                <DockPanel Background="#FFE5E5E5">
+                    <ToolBar DockPanel.Dock="Top" x:Name="inkToolbar" Height="60">
+                        <Border Margin="0,2,0,3" Width="300">
+                            <Grid>
+                                <RadioButton x:Name="inkRadio" 
+                                             Content="Ink Mode"
+                                             GroupName="InkMode"
+                                             Margin="0,0,200,0"
+                                             IsChecked="True" Click="RadioButtonClick"/>
+                                <RadioButton x:Name="eraseRadio" 
+                                             Content="Erase Mode"
+                                             GroupName="InkMode"
+                                             Margin="100,0" Click="RadioButtonClick"/>
+                                <RadioButton x:Name="selectRadio" 
+                                             Content="Select Mode"
+                                             GroupName="InkMode"
+                                             Margin="200,0,0,0" Click="RadioButtonClick"/>
+                            </Grid>
+                        </Border>
+                        <Separator/>
+                        <ComboBox x:Name="comboColors" Width="200" 
+                                  SelectionChanged="comboColors_SelectionChanged">
+                            <StackPanel Orientation="Horizontal" Tag="Red">
+                                <Ellipse Fill="Red" Height="40" Width="40"/>
+                                <Label FontSize="20" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" Content="Red"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Tag="Green">
+                                <Ellipse Fill="Green" Height="40" Width="40"/>
+                                <Label FontSize="20" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" Content="Green"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Tag="Blue">
+                                <Ellipse Fill="Blue" Height="40" Width="40" />
+                                <Label FontSize="20" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" Content="Blue" />
+                            </StackPanel>
+                        </ComboBox>
+                        <Button x:Name="btnSave" HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" Width="75" Content="Save Image" 
+                                Click="BtnSave_Click"
+                                />
+                        <Button x:Name="btnLoad" HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" Width="75" Content="Load Image"
+                                Click="BtnLoad_Click"
+                                />
+                    </ToolBar>
+                    <InkCanvas x:Name="myInkCanvas" Background="#FF4AE6D6" />
+                </DockPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
